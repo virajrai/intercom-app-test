@@ -24,6 +24,8 @@ const response = `<!doctype html>
     ></script>
     <script type="module" defer>
     window.onload = () => {
+    console.log(window.location);
+    console.log(window.location.origin);
     window.addEventListener("message", function(event) {
   if (event.data && event.data.type === "ENABLE_CURSOR") {
     console.log("event caught in iframe")
