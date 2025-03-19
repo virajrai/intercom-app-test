@@ -24,13 +24,23 @@ const response = `<!doctype html>
     ></script>
     <script type="module" defer>
     window.onload = () => {
-    	window.parent.postMessage({ type: "ENABLE_CURSOR" }, "*");
-  	parent.postMessage({ type: "ENABLE_CURSOR" }, "*");
+    window.addEventListener("message", function(event) {
+  if (event.data && event.data.type === "ENABLE_CURSOR") {
+    console.log("event caught in iframe")
+  }
+	});
+
+
+        top.postMessage({ type: "DEBUG_TEST", payload: "Hello from iframe!" }, "*");
+
+    	window.parent.postMessage({ type: "ENABLE_CURSOR" ,payload: "Hello from iframe!" }, "*");
+        window.postMessage({ type: "ENABLE_CURSOR" ,payload: "Hello from iframe!" }, "*");
+  	parent.postMessage({ type: "ENABLE_CURSOR",payload: "Hello from iframe!"  }, "*");
  	 console.log("Message sent to parent.");
 	};
 
 
-      parent.postMessage({ type: "ENABLE_CURSOR" }, "*");
+      parent.postMessage({ type: "ENABLE_CURSOR",payload: "Hello from iframe!"  }, "*");
       console.log("running inkeep embed script");
       
     </script>
