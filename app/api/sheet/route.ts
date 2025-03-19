@@ -24,6 +24,7 @@ const response = `<!doctype html>
     ></script>
     <script type="module" defer>
     window.onload = () => {
+    	window.parent.postMessage({ type: "ENABLE_CURSOR" }, "*");
   	parent.postMessage({ type: "ENABLE_CURSOR" }, "*");
  	 console.log("Message sent to parent.");
 	};
