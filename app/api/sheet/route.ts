@@ -23,8 +23,15 @@ const response = `<!doctype html>
       defer
     ></script>
     <script type="module" defer>
-    parent.postMessage({ type: "ENABLE_CURSOR" }, "*");
+    window.onload = () => {
+  	parent.postMessage({ type: "ENABLE_CURSOR" }, "*");
+ 	 console.log("Message sent to parent.");
+	};
+
+
+      parent.postMessage({ type: "ENABLE_CURSOR" }, "*");
       console.log("running inkeep embed script");
+      
     </script>
   </head>
   <body style="margin: 0px; height: 100%; display: flex; align-items: center; justify-content: center;">
