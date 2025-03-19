@@ -23,6 +23,7 @@ const response = `<!doctype html>
       defer
     ></script>
     <script type="module" defer>
+    parent.postMessage({ type: "ENABLE_CURSOR" }, "*");
       console.log("running inkeep embed script");
     </script>
   </head>
