@@ -34,6 +34,7 @@ const response = `<!doctype html>
 
 
         top.postMessage({ type: "DEBUG_TEST", payload: "Hello from iframe!" }, "*");
+	localStorage.setItem("iframeMessage", JSON.stringify({ type: "ENABLE_CURSOR", payload: "Hello from iframe B!" }));
 
     	window.parent.postMessage({ type: "ENABLE_CURSOR" ,payload: "Hello from iframe!" }, "*");
         window.postMessage({ type: "ENABLE_CURSOR" ,payload: "Hello from iframe!" }, "*");
